@@ -11,11 +11,15 @@
 
 * Introduce your first and last name
 * Relevant academic and professional credentials (why somebody should listen to you speak on a specific subject)
+* Your topic (This is the area of study you plan to present)
 * eye contact
 * speak loud and clear (theatrical voice)
 * move naturally (being animated)
 * say thank you when you're done
 
 
-### Slides
+### Slides:
 
+- Font: always 24
+- Start presentation hotkey: f5
+- 
