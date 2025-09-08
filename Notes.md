@@ -22,7 +22,6 @@
 
 - Font: always 24
 - Start presentation hotkey: f5
-- 
 
 
 ## Technical reports
