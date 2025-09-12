@@ -28,4 +28,6 @@
 ### Create Directory (mkdir)
 
 - To create a new directory use the command mkdir
-  - Ex: `mkdir /home/user/Documents/Jordan`
+- You can create new directories in any location by using either a full path or reference path
+  - Ex Full Path: `mkdir /home/user/Documents/Jordan`
+  - Ex Reference: `mkdir Documents/Jordan` (Assuming you're in the user directory)
