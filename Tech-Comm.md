@@ -91,3 +91,28 @@
   - Assignment 2: 1.0 Introduction, 2.0 Problem, 3.0 Criteria
 - Then Chapter 4
   - Assignment 3: 4.0 Results and Discussion (With IEEE Sources)
+
+
+# Week 3:
+---
+## Elements of Technical Writing
+- Do not indent
+- Avoid personal pronouns
+- Use headings and subtitles
+- Short paragraphs and sentences
+- Use white space between paragraphs
+- Use page numbers
+- Font: Size 11/12 for base text, 14 for headings
+- Use a sans-serif font: i.e. Calibri, Arial (OACETT)
+
+
+## 1.0 Introduction
+- Provide a sentence on your purpose, audience, problem, solution, and report overview
+- **Purpose:** To Persuade/recommend
+- **Audience:** Experts, Technicians, Managers, Laypersons (pick one)
+- **Topic overview:** Preview report content
+  - Problem preview
+  - Solution preview
+  - Chapter preview (Chapter 2.0 contains the problem statement)
+
+Example: The purpose of this technical report is to make a recommendation on the use of batari Basic to code game for the Atari 2600. The audience for this report are technicians in the computer science field. The problem this report responds to is the need for coding software that is compatible with emulators and physical Atari 2600 consoles. The solution is to use batari Basic version 1.0 for Windows. Chapter 2.0 of this report provides specifics on the problem and solution. Chapter 3.0 provides the criteria list.
