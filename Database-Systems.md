@@ -51,3 +51,68 @@
 
 
 ## Security Features
+
+## MS SQL Server - Security Features
+- SQL Server security is authentication + authorization
+- Authentication -> verifies who can connect (logins).
+- Authorization -> controls what actions they can perform (users, roles, permissions).
+
+
+### Security Features - LOGINS
+- A login is required to connect to SQL Server (server-level security).
+- Types of logins:
+  - Windows logins (integrated with Active Directory).
+  - SQL Server logins (username + password).
+- Defines server-wide access but not directly to databases.
+
+
+### Security Features - DATABASE USERS
+- A user is created inside a database and mapped to a login
+- Allows login to access specific databases
+- One login can be mapped to multiple users accross different databases.
+- Example Using SQL's Datab Control Langauge (DCL):
+  - CREATE USER JohnUser FOR LOGIN JohnLogin;
+
+
+### Security Features - PERMISSIONS
+- Define what actions users/roles can perform.
+- Levels:
+  - Server-level -> CREATE DATABASE, ALTER ANY LOGIN.
+  - Database-level -> SELECT, INSERT, UPDATE, DELETE, EXECUTE.
+  - Object-level -> permissions on specific tables, views, or stored procedures.
+- Example (SQL's DCL):
+  - GRANT SELECT, INSERT ON Employees TO JohnUser;
+
+
+### Security Features - DATABASE ROLES
+- Roles group permissions for easier management.
+- Types:
+  - Server Roles -> control server-wide tasks (e.g., sysadmin, securityadmin).
+  - Database Roles -> control database-specific tasks (e.g., db_owner, db_datareader, db_datawriter).
+- Custom roles can also be created for flexibility.
+
+
+### Default Login & DB User
+- When you use Windows Authentication, your Windows account (e.g., DOMAIN\Username) becomes the LOGIN at the SQL Server instance level.
+- This login already exists if your Windows account as Admin
+- When you create a new database, SQL Server automatically creates a database user in that database mapped to your login.
+
+
+### Checking Current LOGIN & DB USER
+<img width="724" height="339" alt="2025-09-16_16h39_40" src="https://github.com/user-attachments/assets/45cb5466-7d8d-4f79-b11e-050950c35080" />
+
+
+### Security Features - Best Practices
+- Use Windows Authentication where possible (more secure).
+- Follow principle of least privilege (grant minimum permissions).
+- Prefer roles over individual permissions (easier to manage).
+- Regularly review and audit login/user permissions.
+
+
+### Security Features - Quick Summary
+- Login = Who can enter the server
+- User = Who can enter the database
+- Roles/Permissions = What they can do inside
+
+
+## Advance SQL - 1
