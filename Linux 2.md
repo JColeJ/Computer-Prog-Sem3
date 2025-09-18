@@ -16,7 +16,7 @@
   - Output: *prints out `Jordan Coleman`*
 - Another way you can use echo is putting text into a file already made, or a file you're creating.
   - Ex: `echo Jordan Coleman > name.txt`
-  - Output: *no output if typed correctly*
+  - Output: *no output if typed correctly* (a file named `name.txt` would be created and have the text "Jordan Coleman" inside of it)
  
 
 ### Cat
@@ -66,3 +66,42 @@
 
 - Ex: `ls -lai`
 - Output: All files, With Inode numbers, In long listing format
+
+
+## Week #02:
+
+### Home
+- To get to your home directory type: cd ~ OR cd
+- HOME - If you see HOME(in caps) it's referring to your home directory
+- home - If you see home(in lowercase) we're speaking about where we store user accounts / their home directory.
+- root home - this is where root user stores their personal files
+
+
+### root
+- To get to your root directory type: cd /
+- stands for the super user - admin of the system
+- root of the file system -file system root
+
+
+### mkdir
+- To make a new directory use the command: mkdir
+- Ex: `mkdir Apple`
+- Output: (makes Apple directory)
+
+**Parent directories**
+- To make a directory with children use the command: `mkdir -p fuits/Apple`
+- Ex: `mkdir -p fruits/Apple`
+- Output: (Creates directory fruit with the subdirectory Apple inside)
+
+### rmdir
+- The `rmdir` command is only able to remove empty directories
+- To remove a new directory use the command: rmdir
+- Ex: `rmdir Apple`
+- Output: (removes the Apple directory)
+
+
+### rm
+- To remove a directory that is not empty use the rm command with the correct option
+- Ex: rm -r fruit
+- Output: (removes fruit directory and all of it's contents)
+- NOTE: If you were to just type: `rm fruit` the command would not execute as the rm command on it's own cannot remove directories
