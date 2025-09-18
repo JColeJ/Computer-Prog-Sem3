@@ -102,6 +102,6 @@
 
 ### rm
 - To remove a directory that is not empty use the rm command with the correct option
-- Ex: rm -r fruit
+- Ex: `rm -r fruit`
 - Output: (removes fruit directory and all of it's contents)
 - NOTE: If you were to just type: `rm fruit` the command would not execute as the rm command on it's own cannot remove directories
