@@ -200,3 +200,117 @@
 - **CUBE** -> totals by all combinations
 - **Single-row subquery** -> returns a set of values
 - **Correlated subquery** -> inner query depends on outer query row
+
+
+# Week 2: MS SQL SERVER
+---
+
+## **MS SQL Server: Indexes**
+
+## Indexes in MS SQL Server
+- An index is an on-disk structure associated with a table or view that speeds retrieval of rows from the table or view
+- An index contains keys built from one or more columns in the table or view
+- These keys are stored in a structure (B-tree) that enables SQL Server to find the row or rows associated with the key values quickly and efficiently
+
+
+## What is an Index?
+- Index is a database object that improves query performance
+- Works like a table of contents in a book
+- Key Points:
+  - Speeds up data retrieval
+  - Reduces disk I/O
+  - References table data without storing full data serparately
+
+
+## Should you use an Index all the time?
+- No, indexes are better for select statements, improves table scan, and join operations etc. However requires more storage, slows certain commands (INSERT, UPDATE, DELETE) Maintenance overhead if too many indexes are declared.
+
+
+## Types of Indexes in SQL Server:
+- Clustered Index: Physical order, one per table, often primary key
+- Non-Clustered Index: Seperate structure, multiple per table, pointers to rows
+- Unique Index: Ensures uniqueness of column values
+- Full-Text Index: Optimized for text search
+
+
+## Clustered vs Non-Clustered Indexes
+- A **clustered** index determines the physical order of the data in the table
+- The table itself is stored in the order of the clustered index
+- Often, the clustered index is created on the primary key, but it doesn't have to be.
+- A **non-clustered** index is stored separately from the actual table data
+- It contains: The indexed column(s) * A pointer (row locator) to the actual data row in the table.
+- Think of it as: A separate lookup table that points to the main table, like an index in the back of a book.
+
+
+## Index Creation
+- SQL Server __automatically__ creates indexes when PRIMARY KEY and UNIQUE constraints are defined on table columns
+  - PRIMARY KEY -> CLUSTERED UNIQUE INDEX
+  - UNIQUE KEY -> NON-CLUSTERED UNIQUE INDEX
+- Indexes can also be created manually by using the 'CREATE INDEX' statement.
+
+**Clustered:** `SQL> CREATE CLUSTERED INDEX IDX_EmpID ON Employee(EmpID);`
+- Note: Only 1 clustered index per table allowed.
+
+**Non-Clustered:** `SQL> CREATE NONCLUSTERED INDEX IDX_Job ON Employee(Job);`
+
+**Drop Index:** `SQL> DROP INDEX IDX_Job ON Employee;`
+
+
+## Advantages & Disadvantages of Indexes
+
+**Advantages:**
+- Faster SELECT queries
+- Reduces table scans
+- Improves JOIN operations
+- Helps ORDER BY and GROUP BY clauses
+
+**Disadvantages:**
+- Requires storage space
+- Slows INSERT, UPDATE, DELETE
+- Maintenance overhead if too many indexes
+- Balance read vs write performance
+
+
+## Viewing Indexes
+- Using system views / Meta Data: `SQL> SELECT name, type_desc FROM sys.indexes WHERE object_id = OBJECT_ID('emp')`
+`OR object_id = OBJECT_ID('dept');`
+- SSMS Object Explorer: Expand table -> Indexes
+
+
+## Index Maintenance
+- Rebuild Index: Recreates the index, updates statistics
+- Reorganize Index: Defragments leaf level, online operation
+
+- Example:
+`ALTER INDEX IDX_DeptID ON Employee REBUILD;`
+`ALTER INDEX IDX_DeptID ON Employee REORGANIZE;`
+- Regular maintenance improves performance on large tables
+
+
+## Indexes Best Pratices
+- Index primary and foreign keys
+- Avoid too many indexes on write-heavy tables
+- Create Index on column only if its frequently used in WHERE clause
+- Monitor index usage and fragmentation
+- Balance query performance and storage overhead
+
+
+## **MS SQL Server: Query Optimizer & Execution Plans**
+
+## Query Optimizer
+- SQL Server component that determines the most effcient way to execute a query
+- Considers: Available indexes, statistics, join methods, and query structure
+- Generates multiple execution strategies and selects the lowest-cost plan.
+
+
+**NOTE: Anything good for DML slows down select statement, same is true vice versa.**
+
+
+## What is an Execution Plan?
+- An Execution Plan is a detailed roadmap showing how a query will be executed, including the sequence of operations, data access methods, and cost estimates.
+- Shows the steps SQL Server will take to retrieve or modify data
+- Includes operators like scans, seeks, joins, sorts, and aggregations
+- Provides estimated and actual row counts
+- Helps identify performance bottlenecks and opportunities for optimization.
+
+
