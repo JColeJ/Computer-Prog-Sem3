@@ -202,7 +202,7 @@
 - **Correlated subquery** -> inner query depends on outer query row
 
 
-# Week 2: MS SQL SERVER
+# Week 3: MS SQL SERVER
 ---
 
 ## **MS SQL Server: Indexes**
@@ -314,3 +314,65 @@
 - Helps identify performance bottlenecks and opportunities for optimization.
 
 
+## Types of Execution Plans
+1. Estimated Execution Plan
+   - Generated before query execution
+   - Shows predicted operations and costs
+   - SSMS Shortcut: **Ctrl + L**
+2. Actual Execution Plan
+   - Generated after query execution
+   - Includes runtime statistics (rows processed, CPU/IO cost)
+   - SSMS Shortcut: **Ctrl + M**
+
+
+## Tips & Best Practices
+- Prefer Index Seek over Scan for large tables
+- Use filtered indexes for selective queries
+- Check warnings (missing indexes, spills to tempdb)
+- Compare estimated vs actual plans for real-world performance
+
+
+## Class Exercise - Indexes
+1. Create a new Database named "HR" & Open NEW QUERY on HR database
+2. Run the SQL script provided under CONTENT -> WEEK 2 -> HR SQL Script. This script creates dept, emp tables.
+3. View indexes on Dept, Emp table (slide 11 - "Viewing Indexes")
+4. Analyze what type of indexes exists? How were they created?
+5. Create a new index on emp's ename column (slide 9 - "Index Creation").
+6. Repeat instruction of step 3. - Viewing indexes
+
+
+## Advance SQL: Top N Analysis - TOP
+
+<ins>Find the Top-5 Highest Salary in Emp's table:</ins>
+
+`SQL> SELECT ename, job, sal FROM emp ORDER BY sal DESC;`
+
+Now,
+`SQL> SELECT TOP 5 ENAME, JOB, sal FROM emp ORDER BY sal DESC;`
+
+
+## Advance SQL: Top N Analysis - RowNum()
+<ins>Find the 5 Highest Salary in Emp's table:</ins>
+`SQL> SELECT ename, job, sal,
+  ROW_NUMBER() OVER (ORDER BY sal DESC) AS RowNum FROM Emp;`
+**Now:**
+`SQL> SELECT * FROM (SELECT ename, job, sal, ROW_NUMBER() OVER (ORDER BY sal DESC) AS RowNum FROM Emp ) "EmpSal"
+WHERE RowNum = 5;`
+
+
+## Advance SQL: Top N Analysis - RANK()
+**Write a query to rank employees in each department based on their salary (highest salary = rank 1):**
+
+`SQL> SELECT empno, ename, deptno, sal, RANK() OVER (PARTITION BY deptno ORDER BY sal DESC) AS SalaryRank
+FROM Emp;`
+
+
+## Class Excercise - Execution Plan
+`SQL> select* from emp where deptno = 10;`
+- Use CTRL + M to view the execution plan (EP). Hover the mouse pointer on execution plan to view details in the tool tip. Examine & analyze the EP
+
+`SQL> SELECT * INTO emp2 FROM emp;`
+- Now, view if there are indexes on emp2 table
+
+`SQL> SELECT * FROM emp2 WHERE deptno = 10;`
+- User CTRL + M to view the execution plan (EP). Examine & analyze the EP. Compare it to the first EP.
