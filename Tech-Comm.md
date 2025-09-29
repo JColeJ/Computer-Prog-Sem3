@@ -234,3 +234,107 @@ Example: The purpose of this technical report is to make a recommendation on the
   - This chapter will then provide the data on compatibility.
 
 - Do not provide this data in Assignment 2.
+
+
+# Week 4:
+---
+
+
+
+
+# Week 5:
+---
+
+## Graphics
+- Use graphics in your report - Relevant images only
+- Includes drawings, diagrams, photographs, illustrations of all sorts, tables, pie charts, bar charts, line graphs, flow charts etc.
+- Never put an image into a report unless you explain the context
+
+
+## Drawings, Diagrams, Photos
+- **Titles:** Illustrations should have titles, and these titles should be numbered (Figure 1, Figure 2, etc.)
+  - Use the caption tool in word to insert these titles
+- **Cross-references:** Illustrations should be referred to from the relevant point in the discussion i.e. (See Figure 2.)
+  - Discuss the illustration
+- **Size of illustrations:** You want illustrations to be between one-half to one-quarter of the vertical size of the page. You want them to fit on the page with other text.
+  - You can resize images by selecting them and using the corner pointers
+- **Placement within margins:** Make sure that your illustrations fit neatly and comfortably within standard margins
+- **Level of technical detail:** You want illustrations to be at the right technical level for your readers
+
+
+## Tables
+- The biggest use of tables is for numerical data
+- However, whenever you have situations where you discuss several things about which you provide the same categories of detail, you've got a possibility for a table
+
+
+## Table Format
+- At the top of each column heading, which defines or identifies the contents of that column (and often it indicates the unit of measurement)
+- On the left edge of the table may be row headings, which define or identify the contents of that row
+- When rows or columns must be grouped or subdivided, create row or column subheadings
+
+
+## Style and Formatting Guidlines for Tables
+- **Discuss your tables**: Refer to the table in the text just preceding the table. Explain the general significance of the data in the table
+- Provide a **cross-reference:** i.e. (See table 1)
+- **Size:** Don't overwhelm readers with monster 11-column, 30-row tables! Simplify the table data down to the amount of data that illustrates your point
+- Don't put the word or abbreviation for the unit of measurement in every cell of a column. Put the abbreviation in parentheses in the column or row heading
+- Right- or decimal-align numbers in the columns
+- Normally, words in columns are left-justified (although you will occasionally see columns of words all centered)
+
+
+## Producing Tables
+- Word includes table-generating tools
+- You don't have to draw the lines and other formatting details
+- **Caption Tool:** Use the caption tool to put your table title on "top". You can change the "label" to "table" if it is still in "figure" mode
+
+
+## Charts and Graphs
+- Charts and graphs are actually just another way of presenting the same data that is presented in tables - although a more dramatic and interesting on
+- However, you get less detail or less precision in a chart or diagram than you do in the table
+
+
+## Formatting requirements for Charts and Diagrams
+- **Axis labels:** In bar charts and line graphs, don't forget to indicate what the x and y axes represent
+- **Keys:** Bar charts, line graphs, and pie charts often use special color, shading, or line style (solid or dashed)
+- Be sure to indicate what these mean; translate them in a key (a box) in some unused place in the chart or graph
+
+
+## Formatting requirements for your Graphics
+- **Figure titles:** Include a title, in many cases, a numbered title. Don't forget to cite the source of any information you borrowed in order to create the graphic.
+- **Cross-references:** Whenever you use a Figure or Table, don't forget to put a cross-reference to it from the related text. (See Figure 1) or (See Table 1)
+- **Documentation:** When you borrow information to create a graphic, be sure to use the standard format to indicate the source. Put the IEEE [1] number in the figure or table title
+
+
+## List of Figures/Tables
+- On pages iv and v of your technical report, you will have a list of Tables and Figures
+
+- This looks like a Table of Contents
+- This tells you the location of graphics in your report
+- i.e.
+- Figure 1: Graphic Card............7
+- Figure 2: GPU.....................8
+- Create this by clocking "**Insert Table of Figures**"
+
+
+## Hybrid Activity: Caption Tool
+- The hybrid actitvity this week is to practice the caption tool
+- Click "**References**" to access the tool
+- Click "**Insert Caption**" to create a title
+  - The default is "**Figure 1**" You can add a name to this title
+  - You can change the "**label**" to "**Table**" for a table title
+
+- Click "**Insert Table of Figures**" to make a List of Figures
+  - You can change the "**label**" to "**Tables**" for a List of Tables
+
+
+## Assignment 4: Graphic
+- The purpose of this assignment is to apply the format requirements for inserting figures and tables into your report
+- For 1 image:
+  - Discuss the image
+  - Provide a cross-reference (See Figure 1)
+  - Provide the image
+  - Provide a Figure Title created with the caption tool
+  - Include a [1] IEEE number if you borrow the image
+  - Provide an auto generated List of Figures entry
+  - Include a bibligraphic entry if you borrow the image
+  - See the Example
