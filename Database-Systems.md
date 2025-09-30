@@ -376,3 +376,115 @@ FROM Emp;`
 
 `SQL> SELECT * FROM emp2 WHERE deptno = 10;`
 - User CTRL + M to view the execution plan (EP). Examine & analyze the EP. Compare it to the first EP.
+
+
+# Week 4: MS SQL Server - T SQL
+---
+
+## Programmability in SQL Server
+- Programmability in SQL Server refers to the features and objects that allow users to embed logic and control flow within the database itself, extending beyond basic data storage and retrieval. This enables the creation of more complex, efficient, and secure database solutions. The Key objects includes:
+  - Stored Procedures
+  - Functions (User Defined Functions)
+  - Triggers
+
+
+## SQL vs Stored Subprograms (Pt.1)
+- **Reusability:** Define once and reuse, avoid redundant SQL
+- **Performance:** Precompiled and cached, faster than ad-hoc SQL
+- **Maintainability:** Centralized logic, easier to update
+- **Security:** Grant execute rights without exposing tables
+
+
+## SQL vs Stored Subprograms (Pt.2)
+- **Consistency:** Standardized operations across applications
+- **Error Handling:** TRY...CATCH for robust debugging
+- **Modularity:** Easier testing and structured programming
+- **Automation:** Encapsulate business rules and batch jobs
+
+
+## SQL vs Stored Subprograms (Pt.3)
+- **SQL:**
+  - Follows ANSI SQL standard (portable across DBMS)
+  - Executes single queries directly
+  - Good for ad-hoc tasks
+  - Limited control structures, less modular
+
+- **Stored Sub Programs: Procedures/Functions/Triggers:**
+  - Vendor-specific extensions to ANSI SQL (i.e. T-SQL, PL/SQL)
+  - Encapsulate logic for reuse and automation
+  - Precompiled - better performance
+  - Allow flow control (IF, FOR, WHILE, error handling)
+
+
+## Stored Procedures - 1
+- A stored procedure is a named group of one or more T-SQL statements stored in the database
+- They can accept input, output parameters, return status codes, and call other procedures
+- Support control-of-flow elements: IF ... ELSE, WHILE, error handling (TRY...CATCH), transactions, etc.
+- Can reduce network traffic (client only sends EXEC procName instead of full SQL text).
+
+
+## Stored Procedures - 2
+- Encapsulate business logic; simplify permissions (grant EXECUTE instead of direct table rights)
+- Improved performance by compiling the stored procedure only once, when it's created
+- Can be encrypted (hide definition), recompiled, executed as another user, etc
+
+
+## Stored Procedures - 3
+<img width="728" height="424" alt="2025-09-30_15h42_15" src="https://github.com/user-attachments/assets/cf22e261-909d-4498-9daa-90dd68d5ba1d" />
+
+
+## User Defined Functions - 1
+- User-defined **functions** are programs that accept zero or more parameters, perform an action, such as a complex calculation, and **return** the result
+- The return value can either be a single scalar value or a result set
+- Cannot modify database state (no direct INSERT/UPDATE/DELETE)
+- Used calculations & computations
+- Can be invoked inside DML, SELECT, WHERE, JOIN, etc
+
+
+## User Defined Functions - 2
+<img width="730" height="398" alt="image" src="https://github.com/user-attachments/assets/1bddfb33-68fc-4a29-bf86-abe445898426" />
+
+
+## Triggers - 1
+- A trigger is a special kind of stored program that **executes automatically** in response to certain events on a table or view
+- Triggered by DML operations (INSERT, UPDATE, DELETE) or DDL events (like CREATE, ALTER)
+- Cannot be called explicitly; execution is automatic when the triggering event occurs
+- Useful for enforcing business rules, auditing, and data integrity
+- Supported in SQL Server as AFTER, INSTEAD OF, and DDL triggers
+
+
+## Triggers - 2
+- **Benefits of Triggers:**
+  - **Automation:** Automatically enforce rules or calculations
+  - **Data Integrity:** Ensure consistency across related tables
+  - **Auditing & logging:** Track changes to sensitive tables
+  - **Centralized Logic:** Business rules reside in the database, not just in applications
+  - **Conditional Actions:** Can react differently depending on the inserted/updated/deleted data
+
+
+## Triggers - 3
+<img width="728" height="352" alt="2025-09-30_16h01_22" src="https://github.com/user-attachments/assets/64c19d97-8d50-4d2d-8bb8-98cc3276c751" />
+
+
+## Triggers - 4
+<img width="730" height="291" alt="2025-09-30_16h02_26" src="https://github.com/user-attachments/assets/61f2509e-977f-45e5-805d-7f30f900f746" />
+
+
+## Procedure vs Functions vs Triggers
+<img width="729" height="369" alt="2025-09-30_16h03_54" src="https://github.com/user-attachments/assets/e1581d5e-0714-4868-8b3b-54d3aec78f0f" />
+
+
+- **Stored Procedure**
+  - Perform **actions** (insert/update/delete, batch jobs)
+  - Encapsulate **business logic**
+  - Reduce network traffic (single EXEC vs multiple SQL statements)
+
+- **User-Defined Function (UDF)**
+  - Perform **calculations or return datasets** for queries
+  - Scalar functions -> single value
+  - Table-Valued functions -> return a table for SELECT, JOIN, WHERE
+
+- **Trigger**
+  - Automatically **react to database events**
+  - Ideal for **auditing, logging, enforcing contraints**
+  - Avoid heavy processing inside triggers for performance
