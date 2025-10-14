@@ -36,7 +36,7 @@
 
 **ANSI SQL**
 - Standardized across RDBMS: Oracle, MySQL, PostgreSQL, SQL Server.
-- Basic wuery operations: SELECT, INSERT, UPDATE, DELETE, JOIN.
+- Basic query operations: SELECT, INSERT, UPDATE, DELETE, JOIN.
 - Ensures **portability** across database systems.
 
 
