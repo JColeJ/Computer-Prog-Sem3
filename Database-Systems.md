@@ -488,3 +488,55 @@ FROM Emp;`
   - Automatically **react to database events**
   - Ideal for **auditing, logging, enforcing contraints**
   - Avoid heavy processing inside triggers for performance
+
+
+# Week 9:
+---
+
+## Oracle - History
+- From Wikipedia:
+  - Larry Ellison and his two friends and former co-workers, Bob Miner and Ed Oates, started consultancy called Software Development Laboratories (SDL) in 1977, later Oracle Corporation.
+
+
+## Oracle - Architecture
+- Oracle - connection based through Listener acting as service broker
+<img width="758" height="265" alt="2025-10-28_15h25_21" src="https://github.com/user-attachments/assets/08a80fd9-da90-4c2f-a3a0-8ace53809486" />
+
+
+## Oracle - Container Database Architecture
+- See: https://docs.oracle.com/en/database/oracle/oracle--database/23/dbiad/all_diagrams.html
+<img width="749" height="308" alt="2025-10-28_15h26_45" src="https://github.com/user-attachments/assets/8458e1d2-1131-46d0-a65b-340c181feb55" />
+
+
+## Oracle - Architecture (Queries)
+- Oracle **analyzes query execution plans to identify shared components** that are already in memory
+- Oracle **does** cache query **results** (uses FIFO when runs out of shared memory)
+  - Configurable amount of memory; both per query/connection and for total amount of shared memory
+  - If a query requires more memory than available; uses TEMP tablespace to store the results (or parts of the result) on disk
+- Allows "Sharding" (i.e., shared-nothing replication) or Replication with shared-everything model or combinations.
+
+
+## Oracle - Architecture
+In Oracle documentation: the "database" is the set of files that an instance uses
+- **Each instance is associated with a particular database**
+- When the application connects to a database server, it provides an instance name, and a username/password
+  - The listener uses the instance name to lookup the location of the service (could be remote)
+
+- Data split into **Tablespaces**
+  - Default tablespaces: SYSTEM, SYSSAUX, USERS, UNDOTBS1, and TEMP
+  - Typically each application also creates one or more tablespaces containing application-specific data
+  - Each tablespace has its own storage datafile(s).
+  - A tablespace can be backed up and restored separately
+- **Users, Roles** (roles can be assigned to roles or users)
+  - Passwords with expiry, history, etc
+  - Users have a **profile** (limits of memory usage, number of connections, etc.)
+
+
+## Oracle - Architecture
+- SQL based queries plus C++, and Java also can be used as native triggers and stored procedures
+- Query Optimization and data sharing in memory
+  - Parts of SQL statements are kept in a library and when re-accessed, the copy in memory is used (avoiding re-executing the SQL)
+  - Data is shared - not just queries or plan
+- PL/SQL scripts as triggers, stored procedures
+  - MANY built-in functions that extend SQL
+- Stand-alone "rman"  recovery manager tool manages backups and recovery using logs
