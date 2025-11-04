@@ -540,3 +540,46 @@ In Oracle documentation: the "database" is the set of files that an instance use
 - PL/SQL scripts as triggers, stored procedures
   - MANY built-in functions that extend SQL
 - Stand-alone "rman"  recovery manager tool manages backups and recovery using logs
+
+
+# Week 9:
+---
+
+## Topics Covered:
+**Oracle**
+  - PL/SQL Introduction
+  - Data Types
+  - Procedures, Functions, & Triggers
+
+
+## Oracle PL/SQL of Features
+
+- PL/SQL is a Database Language restricted only to do the database programming.
+- PL/SQL can have any number of statements, which reduces the network traffic.
+- PL/SQL Program can reside either at the front end or within Oracle Database Server as Stored Subprogram.
+- PL/SQL programming blocks can be Anonymous Blocks or Named Sub Programs.
+- Named PL/SQL Sub-Programs that can be stored within the database are: Procedures, Functions, Triggers and Packages.
+- These Stored Sub Programs allows reusability of Code, better performance & programmability.
+
+
+## Use of SQL in PL/SQL
+PL/SQL is tightly integrated with SQL. Some SQL Statements are valid in PL/SQLwhere some are invalid.
+- **Valid SQL Statements in PL/SQL:**
+  - All DML Statements (Insert, Update, Delete)
+  - All TCL (Commit, Rollback)
+  - All SQL Functions (Single & Group function)
+  - All SQL Predicates (Where, Having, Group By, Order by)
+- **Invalid SQL Statements in PL/SQL are:**
+  - PL/SQL may not directly make use of these statements. However, there is work around logics for it
+  - DDL Statements (Create, Alter, Etc)
+  - DCL Statements (Grant, Revoke)
+
+
+## Anonymous PL/SQL Block Syntax
+- **Declare (Optional)**
+  - Variables, Cursors and User defined Exception.
+- **Begin (Mandatory)**
+  - Program Logic / Executable Statements
+- **Exception (Optional)**
+  - Exception Handling Code
+- **End;**
