@@ -583,3 +583,59 @@ PL/SQL is tightly integrated with SQL. Some SQL Statements are valid in PL/SQLwh
 - **Exception (Optional)**
   - Exception Handling Code
 - **End;**
+
+
+## Data Types in PL/SQL
+- PL/SQL Data Types are primarily divided into two categories.
+- **Scalar Data Types** and **Composite Data Types**
+- Scalar data types can hold a single value per variable
+- Composite data types have internal components and it may hold multiple values per variable.
+- %TYPE Attribute can be used to declare a variable as per the data type of an underling table.view's column.
+<img width="789" height="224" alt="2025-11-04_15h37_01" src="https://github.com/user-attachments/assets/a5dea115-c4df-48a4-8e95-f569548ba5e4" />
+
+
+## PL/SQL Procedures
+- A Procedure is a named PL/SQL block, stored in the database and it is generally used to perform an action, such as a DML into a table or a SELECT from a table.
+- A Procedure may or may not return a value
+- When a procedure is first created, it is compiled and stored within the database in compiled form
+- This compiled code allows reusability and performance benefits
+- Parameter can have three modes in a procedure, **IN, OUT & INOUT** mode.
+- Oracle Recommends using a procedure for performing **SELECT** or **DML** and Functions for calculations.
+
+
+## PL/SQL Functions
+- Function is a named PL/SQL block, that MUST return a single value.
+- A function may be called as part of an expression
+- Functions and Procedures are structured alike
+- Procedures are used to perform a task and Functions are used to compute values
+- Location to call User-Defined Function:
+  - Select Command
+  - Where, Group by, Having & Order by Clauses
+  - In an Insert Statement
+  - In Update Statement
+
+
+## Data Dictionary Views
+- The information of procedures, functions and packages can be obtained from the following data dictionary view. Note that the user_procedures and user_source are common DDV for procedures, functions and packages. There are no separate DDV for functions and packages.
+
+`SQL> select Object_Name, Procedure_Name From User_Procedures;`
+
+`SQL> Select Name, Text From User_Source`
+`Where name = 'TAX'`
+`Order By Name, Line`
+
+
+## Database Trigger
+- A Database Trigger is a PL/SQL block which is associated with a table, view, schema or the entire database.
+- A Trigger is never called (i.e. Executed), It Executes Implicitly (Automatically) whenever a particular event takes place. Hence, Triggers may be used to perform automated task based on certain events.
+- Database Triggers are of two types:
+  1. Schema Level Trigger: Based on a particular object (table/view) in a schema
+  2. System Trigger: Based on the entire database.
+
+
+## Database Trigger
+When creating a trigger, we must decide on three things:
+- **Trigger Time** - Trigger time decides whether a trigger is to be executed **BEFORE** or **AFTER** an **EVENT**
+- **Trigger Event** - Trigger EVENT is the EVENT upon which the trigger should be executed. EVENT could be **INSERT, UPDATE, DELETE, INSTEAD OFF, LOGON, LOGOFF, STARTUP, SHUTDOWN,** etc.
+- **Trigger Type** - Two types of Triggers are possible. Row Level & Statement Level. A Row Level Trigger executes once for each record affected by the EVENT. A Statement Level Trigger executes only once irrespective of the records affected by the EVENT.
+- Triggers may not contain DCL (commit/rollback) statement.
