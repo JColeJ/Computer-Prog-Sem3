@@ -105,3 +105,15 @@
 - Ex: `rm -r fruit`
 - Output: (removes fruit directory and all of it's contents)
 - NOTE: If you were to just type: `rm fruit` the command would not execute as the rm command on it's own cannot remove directories
+
+
+## Week 03:
+
+
+## Week 04:
+
+
+## Week 05:
+
+
+## Week 06:
